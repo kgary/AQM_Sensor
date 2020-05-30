@@ -1,0 +1,16 @@
+----------------------------------------------------------------
+Sat Aug 30 22:40:35 MST 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0148-2a94-4cd9-000003dcbc98 
+on database directory /Users/kevinagary/work/asueast/research/projects/AQM/AQM_Sensor/AQM_Dylos/derby_home/AQMdb  with class loader sun.misc.Launcher$AppClassLoader@9cc3baa 
+Loaded from file:/Users/kevinagary/work/asueast/research/projects/AQM/AQM_Sensor/AQM_Dylos/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_25-b15
+user.dir=/Users/kevinagary/work/asueast/research/projects/AQM/AQM_Sensor/AQM_Dylos/derby_home
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sat Aug 30 22:42:13 MST 2014: Shutting down Derby engine
+----------------------------------------------------------------
+Sat Aug 30 22:42:13 MST 2014:
+Shutting down instance a816c00e-0148-2a94-4cd9-000003dcbc98 on database directory /Users/kevinagary/work/asueast/research/projects/AQM/AQM_Sensor/AQM_Dylos/derby_home/AQMdb with class loader sun.misc.Launcher$AppClassLoader@9cc3baa 
+----------------------------------------------------------------

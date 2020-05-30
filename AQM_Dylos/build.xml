@@ -1,0 +1,71 @@
+<project name="AQM_Dylos" default="compile" basedir=".">
+    <property name="src" value="src" />
+    <property name="classes" value="classes" />
+	<property name="build" value="build"/>
+	<property name="lib" value="lib"/>
+	<property name="properties" value="properties"/>
+	<property name="sql" value="sql"/>
+	<property name="aqmcommon.home" value="../../AQM_Common" />
+	<property name="dist.jar" value="aqm_dylos.zip"/>
+	
+    <path id="compile.classpath">
+       <pathelement path="${classes}"/>
+    	   <pathelement path="${aqmcommon.home}/${classes}"/>
+       <fileset dir="${lib}">
+          <include name="**/*.jar"/>
+       </fileset> 
+    </path>	
+	
+	<target name="prepare">
+		<tstamp/>
+		<mkdir dir="${build}"/>
+	</target>	
+	
+	<target name="compile">
+	    <mkdir dir="${classes}"/>
+		<!-- source="1.6" target="1.6"  -->
+		<javac srcdir="${src}" destdir="${classes}" includeantruntime="false">
+			<classpath refid="compile.classpath"/>
+		</javac>
+	</target>	
+	
+	<target name="build" depends="compile,prepare">
+		<copy todir="${build}/${classes}">
+			<fileset dir="${classes}"/>
+			<fileset dir="${aqmcommon.home}/${classes}"/>
+		</copy>
+		<copy todir="${build}/${classes}/${properties}">
+		    <fileset dir="${properties}">
+		    		<include name="aqm.properties"/>
+		    		<include name="monitoringservice.properties"/>		    		
+		    </fileset>
+			<fileset dir="${aqmcommon.home}/${properties}">
+			    <include name="dao.properties"/>
+			</fileset>
+		</copy>   
+		<copy todir="${build}/${lib}">
+			<fileset dir="${lib}"/>	
+			<fileset dir="${aqmcommon.home}/${lib}"/>
+		</copy> 
+		<!--
+		<copy todir="${build}/${sql}">
+			<fileset dir="${sql}">
+				<include name="**/cleandb.sql"/>
+				<include name="**/echodata.sql"/>
+				<include name="**/initialdata.sql"/>
+				<include name="**/aqmddlderby.sql"/>
+			</fileset>
+		</copy> 
+		-->
+	</target>	
+	
+	<target name="dist" depends="build">
+    		<jar destfile="${dist.jar}" basedir="${build}"/>    
+  	</target>	
+	
+	<target name="clean">
+		<delete dir="${build}" />
+		<delete dir="${classes}" />
+		<delete file="${dist.jar}" />
+	</target>	
+</project>
